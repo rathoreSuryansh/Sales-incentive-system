@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "total_missing_values": 3,
+    "total_duplicate_rows": 2,
+    "total_invalid_entries": 1,
+    "overall_status": "ISSUES FOUND"
+  },
+  "missing_values": {
+    "employees": {
+      "total_missing": 0,
+      "by_column": {}
+    },
+    "sales": {
+      "total_missing": 3,
+      "by_column": {
+        "sales": 3
+      }
+    },
+    "targets": {
+      "total_missing": 0,
+      "by_column": {}
+    }
+  },
+  "duplicates": {
+    "employees": 0,
+    "sales": 2,
+    "sales_sample": [
+      {
+        "emp_id": "E001",
+        "month": "Jan",
+        "sales": 32575.0
+      },
+      {
+        "emp_id": "E001",
+        "month": "Feb",
+        "sales": 23038.0
+      },
+      {
+        "emp_id": "E001",
+        "month": "Jan",
+        "sales": 32575.0
+      },
+      {
+        "emp_id": "E001",
+        "month": "Feb",
+        "sales": 23038.0
+      }
+    ],
+    "targets": 0
+  },
+  "invalid_entries": {
+    "negative_sales": {
+      "count": 1,
+      "rows": [
+        {
+          "emp_id": "E012",
+          "month": "Mar",
+          "sales": -5000.0
+        }
+      ]
+    },
+    "invalid_regions": {
+      "count": 0,
+      "rows": []
+    },
+    "invalid_roles": {
+      "count": 0,
+      "rows": []
+    },
+    "invalid_months_sales": {
+      "count": 0,
+      "rows": []
+    }
+  }
+}

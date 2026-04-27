@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Incentive Dashboard | IC Operations Analytics</title>
+  <meta name="description" content="Interactive Sales Incentive & Data Validation Dashboard — employee payouts, anomaly detection, and reconciliation analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ═══════════════════════════════ HEADER ════════════════════════════════ -->
+  <header class="header" id="top-header">
+    <div class="header-brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">IncentiveIQ</span>
+        <span class="brand-sub">IC Operations · ERC · Data Validation</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="badge badge-live" id="pipeline-status">● Pipeline Ready</span>
+      <span class="header-date" id="last-updated">FY 2024</span>
+    </div>
+  </header>
+
+  <!-- ═════════════════════════════ MAIN LAYOUT ════════════════════════════ -->
+  <main class="main">
+
+    <!-- ── NAV TABS ─────────────────────────────────────────────────────── -->
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" id="tab-overview"       role="tab" onclick="switchTab('overview')">Overview</button>
+      <button class="tab-btn"        id="tab-incentives"     role="tab" onclick="switchTab('incentives')">Incentives</button>
+      <button class="tab-btn"        id="tab-reconciliation" role="tab" onclick="switchTab('reconciliation')">Reconciliation</button>
+      <button class="tab-btn"        id="tab-anomalies"      role="tab" onclick="switchTab('anomalies')">Anomalies <span class="badge-count" id="anomaly-tab-count">–</span></button>
+      <button class="tab-btn"        id="tab-validation"     role="tab" onclick="switchTab('validation')">Validation</button>
+    </nav>
+
+    <!-- ══════════════════════════ TAB: OVERVIEW ═════════════════════════ -->
+    <section class="tab-panel active" id="panel-overview">
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card" id="kpi-payout">
+          <div class="kpi-icon kpi-icon--green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Grand Total Payout</span>
+            <span class="kpi-value" data-target="0" id="kpi-val-payout">$0</span>
+            <span class="kpi-sub">Annual incentive payout</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-bonus">
+          <div class="kpi-icon kpi-icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Avg Bonus Rate</span>
+            <span class="kpi-value" id="kpi-val-bonus">–%</span>
+            <span class="kpi-sub">Across all employees</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-target">
+          <div class="kpi-icon kpi-icon--purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">% Above Target</span>
+            <span class="kpi-value" id="kpi-val-target">–%</span>
+            <span class="kpi-sub">Employee-month pairs</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-anomalies">
+          <div class="kpi-icon kpi-icon--red">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Anomalies Detected</span>
+            <span class="kpi-value" id="kpi-val-anomalies">–</span>
+            <span class="kpi-sub">Flagged for review</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-employees">
+          <div class="kpi-icon kpi-icon--teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Total Employees</span>
+            <span class="kpi-value" id="kpi-val-employees">–</span>
+            <span class="kpi-sub">Across 4 regions</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-variance">
+          <div class="kpi-icon kpi-icon--orange">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Recon Variance</span>
+            <span class="kpi-value" id="kpi-val-variance">$0</span>
+            <span class="kpi-sub">Actual vs expected</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="charts-row">
+        <div class="chart-card chart-card--lg">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Monthly Payout Trend</h2>
+              <p class="chart-sub">Actual payout across 12 months</p>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-dot legend-dot--blue"></span><span>Payout</span>
+              <span class="legend-dot legend-dot--purple" style="margin-left:12px"></span><span>Sales</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-monthly-trend" aria-label="Monthly Payout Trend"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card chart-card--sm">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Employees by Role</h2>
+              <p class="chart-sub">Role distribution</p>
+            </div>
+          </div>
+          <div class="chart-wrap chart-wrap--doughnut">
+            <canvas id="chart-role-dist" aria-label="Role Distribution"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 2 -->
+      <div class="charts-row">
+        <div class="chart-card chart-card--sm">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Region-wise Payout</h2>
+              <p class="chart-sub">Total incentive payout by region</p>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-region-payout" aria-label="Region Payout"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card chart-card--lg">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Top 10 Performers</h2>
+              <p class="chart-sub">Ranked by total annual payout</p>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-top-performers" aria-label="Top Performers"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /overview -->
+
+    <!-- ══════════════════════════ TAB: INCENTIVES ════════════════════════ -->
+    <section class="tab-panel" id="panel-incentives">
+      <div class="section-header">
+        <h2>Incentive Calculation Results</h2>
+        <p>Based on rule: Sales &gt; Target → 10% bonus, otherwise 5%</p>
+      </div>
+
+      <!-- Role cards -->
+      <div class="role-cards" id="role-cards-container"></div>
+
+      <!-- Employee table -->
+      <div class="table-card">
+        <div class="table-head">
+          <h3>All Employees — Annual Summary</h3>
+          <div class="search-wrap">
+            <input type="text" id="emp-search" placeholder="Search by name, region, or role…" oninput="filterTable()" />
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table id="emp-table">
+            <thead>
+              <tr>
+                <th onclick="sortTable(0)">Emp ID ↕</th>
+                <th onclick="sortTable(1)">Name ↕</th>
+                <th onclick="sortTable(2)">Region ↕</th>
+                <th onclick="sortTable(3)">Role ↕</th>
+                <th onclick="sortTable(4)">Total Sales ↕</th>
+                <th onclick="sortTable(5)">Total Target ↕</th>
+                <th onclick="sortTable(6)">Payout ↕</th>
+                <th onclick="sortTable(7)">Bonus % ↕</th>
+                <th>Months Hit</th>
+              </tr>
+            </thead>
+            <tbody id="emp-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section><!-- /incentives -->
+
+    <!-- ══════════════════════════ TAB: RECONCILIATION ═══════════════════ -->
+    <section class="tab-panel" id="panel-reconciliation">
+      <div class="section-header">
+        <h2>Payout Reconciliation</h2>
+        <p>Expected payout (5% of target) vs. Actual payout (10% or 5% of sales)</p>
+      </div>
+
+      <div class="recon-kpis" id="recon-kpis"></div>
+
+      <div class="charts-row">
+        <div class="chart-card" style="flex:1">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Expected vs Actual Payout</h2>
+              <p class="chart-sub">Monthly reconciliation</p>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-recon-monthly" aria-label="Monthly Reconciliation"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-head">
+          <h3>Employee Reconciliation Detail</h3>
+        </div>
+        <div class="table-scroll">
+          <table id="recon-table">
+            <thead>
+              <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Role</th>
+                <th>Actual Payout</th>
+                <th>Expected Payout</th>
+                <th>Variance</th>
+                <th>Variance %</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recon-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section><!-- /reconciliation -->
+
+    <!-- ══════════════════════════ TAB: ANOMALIES ════════════════════════ -->
+    <section class="tab-panel" id="panel-anomalies">
+      <div class="section-header">
+        <h2>Anomaly Detection Report</h2>
+        <p>Z-score outliers · Month-over-month spikes · Data quality flags</p>
+      </div>
+
+      <div class="anomaly-summary-grid" id="anomaly-summary-grid"></div>
+
+      <div class="table-card">
+        <div class="table-head">
+          <h3>Flagged Records</h3>
+          <div class="filter-group" id="severity-filter">
+            <button class="filter-btn active" onclick="filterAnomalies('ALL')" id="filter-all">All</button>
+            <button class="filter-btn filter-btn--red"    onclick="filterAnomalies('HIGH')"   id="filter-high">HIGH</button>
+            <button class="filter-btn filter-btn--yellow" onclick="filterAnomalies('MEDIUM')" id="filter-medium">MEDIUM</button>
+            <button class="filter-btn filter-btn--green"  onclick="filterAnomalies('LOW')"    id="filter-low">LOW</button>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table id="anomaly-table">
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Type</th>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Role</th>
+                <th>Month</th>
+                <th>Sales</th>
+                <th>Payout</th>
+                <th>Detail</th>
+              </tr>
+            </thead>
+            <tbody id="anomaly-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section><!-- /anomalies -->
+
+    <!-- ══════════════════════════ TAB: VALIDATION ═══════════════════════ -->
+    <section class="tab-panel" id="panel-validation">
+      <div class="section-header">
+        <h2>Data Validation Report</h2>
+        <p>Missing values · Duplicate rows · Invalid entries detected before processing</p>
+      </div>
+
+      <div id="validation-content"></div>
+    </section><!-- /validation -->
+
+  </main><!-- /main -->
+
+  <footer class="footer">
+    <span>Sales Incentive & Data Validation System · Built with Python (Pandas) + SQL + Chart.js</span>
+    <span>IC Operations | ERC | Data Analytics</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

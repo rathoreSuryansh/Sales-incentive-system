@@ -1,0 +1,416 @@
+{
+  "summary": {
+    "grand_actual_payout": 2117710.85,
+    "grand_expected_payout": 1114235.8,
+    "grand_variance": 1003475.05,
+    "overpaid_count": 30,
+    "underpaid_count": 0,
+    "exact_count": 0
+  },
+  "by_employee": [
+    {
+      "emp_id": "E017",
+      "name": "Nikhil",
+      "region": "West",
+      "role": "Manager",
+      "total_actual_payout": 128577.3,
+      "total_expected_payout": 60937.8,
+      "total_variance": 67639.5,
+      "variance_pct": 111.0,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E015",
+      "name": "Dev",
+      "region": "West",
+      "role": "Manager",
+      "total_actual_payout": 127492.35,
+      "total_expected_payout": 60494.8,
+      "total_variance": 66997.55,
+      "variance_pct": 110.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E022",
+      "name": "Riya",
+      "region": "North",
+      "role": "Manager",
+      "total_actual_payout": 123595.25,
+      "total_expected_payout": 61318.15,
+      "total_variance": 62277.1,
+      "variance_pct": 101.6,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E026",
+      "name": "Neha",
+      "region": "South",
+      "role": "Manager",
+      "total_actual_payout": 119733.4,
+      "total_expected_payout": 60796.35,
+      "total_variance": 58937.05,
+      "variance_pct": 96.9,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E003",
+      "name": "Rohit",
+      "region": "North",
+      "role": "AE",
+      "total_actual_payout": 84516.0,
+      "total_expected_payout": 32792.85,
+      "total_variance": 51723.15,
+      "variance_pct": 157.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E010",
+      "name": "Pooja",
+      "region": "South",
+      "role": "Manager",
+      "total_actual_payout": 109122.45,
+      "total_expected_payout": 60049.85,
+      "total_variance": 49072.6,
+      "variance_pct": 81.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E020",
+      "name": "Kavya",
+      "region": "East",
+      "role": "Manager",
+      "total_actual_payout": 105434.25,
+      "total_expected_payout": 57071.0,
+      "total_variance": 48363.25,
+      "variance_pct": 84.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E012",
+      "name": "Nisha",
+      "region": "East",
+      "role": "Manager",
+      "total_actual_payout": 102782.65,
+      "total_expected_payout": 56866.65,
+      "total_variance": 45916.0,
+      "variance_pct": 80.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E008",
+      "name": "Divya",
+      "region": "North",
+      "role": "Manager",
+      "total_actual_payout": 101450.7,
+      "total_expected_payout": 56941.35,
+      "total_variance": 44509.35,
+      "variance_pct": 78.2,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E029",
+      "name": "Ajay",
+      "region": "West",
+      "role": "AE",
+      "total_actual_payout": 74466.0,
+      "total_expected_payout": 32687.25,
+      "total_variance": 41778.75,
+      "variance_pct": 127.8,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E014",
+      "name": "Sonal",
+      "region": "East",
+      "role": "AE",
+      "total_actual_payout": 77319.15,
+      "total_expected_payout": 36263.8,
+      "total_variance": 41055.35,
+      "variance_pct": 113.2,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E005",
+      "name": "Vikram",
+      "region": "East",
+      "role": "SDR",
+      "total_actual_payout": 54792.95,
+      "total_expected_payout": 16912.25,
+      "total_variance": 37880.7,
+      "variance_pct": 224.0,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E023",
+      "name": "Sanjay",
+      "region": "South",
+      "role": "Manager",
+      "total_actual_payout": 93358.5,
+      "total_expected_payout": 59439.55,
+      "total_variance": 33918.95,
+      "variance_pct": 57.1,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E018",
+      "name": "Meera",
+      "region": "West",
+      "role": "Manager",
+      "total_actual_payout": 94593.9,
+      "total_expected_payout": 62290.7,
+      "total_variance": 32303.2,
+      "variance_pct": 51.9,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E004",
+      "name": "Sneha",
+      "region": "East",
+      "role": "AE",
+      "total_actual_payout": 63302.2,
+      "total_expected_payout": 33751.45,
+      "total_variance": 29550.75,
+      "variance_pct": 87.6,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E011",
+      "name": "Amit",
+      "region": "East",
+      "role": "AE",
+      "total_actual_payout": 58881.65,
+      "total_expected_payout": 33321.75,
+      "total_variance": 25559.9,
+      "variance_pct": 76.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E009",
+      "name": "Arjun",
+      "region": "East",
+      "role": "Manager",
+      "total_actual_payout": 81729.5,
+      "total_expected_payout": 57058.2,
+      "total_variance": 24671.3,
+      "variance_pct": 43.2,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E016",
+      "name": "Tara",
+      "region": "North",
+      "role": "AE",
+      "total_actual_payout": 57361.55,
+      "total_expected_payout": 33478.6,
+      "total_variance": 23882.95,
+      "variance_pct": 71.3,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E025",
+      "name": "Ravi",
+      "region": "West",
+      "role": "SDR",
+      "total_actual_payout": 36710.9,
+      "total_expected_payout": 13873.85,
+      "total_variance": 22837.05,
+      "variance_pct": 164.6,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E027",
+      "name": "Manish",
+      "region": "South",
+      "role": "AE",
+      "total_actual_payout": 57319.35,
+      "total_expected_payout": 35613.55,
+      "total_variance": 21705.8,
+      "variance_pct": 60.9,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E028",
+      "name": "Simran",
+      "region": "South",
+      "role": "SDR",
+      "total_actual_payout": 38106.15,
+      "total_expected_payout": 16635.65,
+      "total_variance": 21470.5,
+      "variance_pct": 129.1,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E024",
+      "name": "Aisha",
+      "region": "West",
+      "role": "SDR",
+      "total_actual_payout": 36251.0,
+      "total_expected_payout": 15374.55,
+      "total_variance": 20876.45,
+      "variance_pct": 135.8,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E030",
+      "name": "Komal",
+      "region": "West",
+      "role": "AE",
+      "total_actual_payout": 50065.0,
+      "total_expected_payout": 30324.2,
+      "total_variance": 19740.8,
+      "variance_pct": 65.1,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E013",
+      "name": "Raj",
+      "region": "East",
+      "role": "AE",
+      "total_actual_payout": 53961.6,
+      "total_expected_payout": 34472.75,
+      "total_variance": 19488.85,
+      "variance_pct": 56.5,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E019",
+      "name": "Suresh",
+      "region": "West",
+      "role": "SDR",
+      "total_actual_payout": 34771.85,
+      "total_expected_payout": 15786.95,
+      "total_variance": 18984.9,
+      "variance_pct": 120.3,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E006",
+      "name": "Ananya",
+      "region": "West",
+      "role": "SDR",
+      "total_actual_payout": 31626.4,
+      "total_expected_payout": 15031.8,
+      "total_variance": 16594.6,
+      "variance_pct": 110.4,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E002",
+      "name": "Priya",
+      "region": "West",
+      "role": "SDR",
+      "total_actual_payout": 33325.4,
+      "total_expected_payout": 16895.05,
+      "total_variance": 16430.35,
+      "variance_pct": 97.2,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E007",
+      "name": "Karan",
+      "region": "North",
+      "role": "SDR",
+      "total_actual_payout": 32361.05,
+      "total_expected_payout": 16739.9,
+      "total_variance": 15621.15,
+      "variance_pct": 93.3,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E021",
+      "name": "Harish",
+      "region": "South",
+      "role": "SDR",
+      "total_actual_payout": 27537.9,
+      "total_expected_payout": 15320.35,
+      "total_variance": 12217.55,
+      "variance_pct": 79.7,
+      "status": "OVERPAID"
+    },
+    {
+      "emp_id": "E001",
+      "name": "Aarav",
+      "region": "East",
+      "role": "SDR",
+      "total_actual_payout": 27164.5,
+      "total_expected_payout": 15694.85,
+      "total_variance": 11469.65,
+      "variance_pct": 73.1,
+      "status": "OVERPAID"
+    }
+  ],
+  "by_month": [
+    {
+      "month": "Jan",
+      "total_actual": 173897.35,
+      "total_expected": 92242.95,
+      "total_variance": 81654.4
+    },
+    {
+      "month": "Feb",
+      "total_actual": 162958.45,
+      "total_expected": 94096.75,
+      "total_variance": 68861.7
+    },
+    {
+      "month": "Mar",
+      "total_actual": 149326.9,
+      "total_expected": 84958.25,
+      "total_variance": 64368.65
+    },
+    {
+      "month": "Apr",
+      "total_actual": 201737.5,
+      "total_expected": 91430.15,
+      "total_variance": 110307.35
+    },
+    {
+      "month": "May",
+      "total_actual": 163665.3,
+      "total_expected": 96174.1,
+      "total_variance": 67491.2
+    },
+    {
+      "month": "Jun",
+      "total_actual": 162853.0,
+      "total_expected": 95162.1,
+      "total_variance": 67690.9
+    },
+    {
+      "month": "Jul",
+      "total_actual": 175139.4,
+      "total_expected": 92638.05,
+      "total_variance": 82501.35
+    },
+    {
+      "month": "Aug",
+      "total_actual": 206124.75,
+      "total_expected": 91782.85,
+      "total_variance": 114341.9
+    },
+    {
+      "month": "Sep",
+      "total_actual": 217539.0,
+      "total_expected": 94156.2,
+      "total_variance": 123382.8
+    },
+    {
+      "month": "Oct",
+      "total_actual": 177674.65,
+      "total_expected": 92601.1,
+      "total_variance": 85073.55
+    },
+    {
+      "month": "Nov",
+      "total_actual": 176189.4,
+      "total_expected": 93737.65,
+      "total_variance": 82451.75
+    },
+    {
+      "month": "Dec",
+      "total_actual": 150605.15,
+      "total_expected": 95255.65,
+      "total_variance": 55349.5
+    }
+  ]
+}
