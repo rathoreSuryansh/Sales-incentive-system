@@ -4,7 +4,7 @@
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 sales-incentive-system/
@@ -39,27 +39,27 @@ sales-incentive-system/
 
 ## ⚙️ Features
 
-### ✅ Incentive Calculation
+### Incentive Calculation
 - **If sales > target → 10% bonus**, otherwise **5% bonus**
 - Annual and monthly aggregations by employee, region, and role
 - Pandas-based computation pipeline
 
-### 🔍 Data Validation
+### Data Validation
 - Detects **missing values** (NaN/null entries)
 - Removes **duplicate rows** before processing
 - Flags **invalid entries** (negative sales, unknown regions/roles)
 
-### ⚖️ Reconciliation
+### Reconciliation
 - Compares **expected payout** (5% of target) vs **actual payout**
 - Calculates variance per employee and per month
 - Identifies overpaid and underpaid employees
 
-### 🚨 Anomaly Detection
+### Anomaly Detection
 - **Z-score method**: flags payouts > 2.5 standard deviations from mean (per role)
 - **Month-over-Month spike**: flags > 150% jump in payout vs prior month
 - Severity-rated: HIGH / MEDIUM / LOW
 
-### 📊 Interactive Dashboard
+### Interactive Dashboard
 - Dark glassmorphism UI built with vanilla HTML/CSS/JS + Chart.js
 - KPI cards, bar charts, line charts, doughnut chart
 - Sortable + searchable employee table
@@ -69,7 +69,7 @@ sales-incentive-system/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Step 1: Install dependencies
 
@@ -98,7 +98,7 @@ Then open: **http://localhost:8080/dashboard/**
 
 ---
 
-## 🛠 Tools & Technologies
+## Tools & Technologies
 
 | Tool | Used For |
 |------|----------|
@@ -109,7 +109,7 @@ Then open: **http://localhost:8080/dashboard/**
 
 ---
 
-## 📋 Dataset
+## Dataset
 
 | File | Rows | Description |
 |------|------|-------------|
